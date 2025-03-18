@@ -4,11 +4,8 @@ const url = process.env.MONGODB;
 
 export const connectToMongoose = async () => {
   try {
-    mongoose
-      .connect(url, {
-        useUnifiedTopology: true,
-        useNewUrlParser: true,
-      })
+    await mongoose
+      .connect(url)
       .then(() => {
         console.log("Connected to Mongoose");
       })
