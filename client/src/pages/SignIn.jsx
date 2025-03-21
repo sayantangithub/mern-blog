@@ -62,7 +62,7 @@ export default function SignIn() {
               <Label value='Your password'/>
               <TextInput type='password' placeholder='********' id='password' onChange={handleChange}/>
             </div>
-            <Button gradientDuoTone='purpleToPink' type='submit' disable={loading}>
+            <Button gradientDuoTone='purpleToPink' type='submit' disabled={loading}>
               {
                 loading ? (<><Spinner size='sm'/>
                   <span className='pl-3'>Loading...</span></>
