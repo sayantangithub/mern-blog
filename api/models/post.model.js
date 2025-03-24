@@ -5,7 +5,7 @@ const postSchema = new mongoose.Schema(
     userId: { type: String, require: true },
     content: { type: String, require: true },
     title: { type: String, require: true, unique: true },
-    imege: {
+    image: {
       type: String,
       default:
         "https://simplybuiltsites.com/wp-content/uploads/how-to-write-a-blog-post.png",
