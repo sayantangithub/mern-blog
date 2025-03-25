@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import Comment from "./Comment";
+import { editComment } from "../../../api/controller/comment.controller";
 
 export default function CommentSection({ postId }) {
   const [comment, setComment] = useState("");
@@ -80,6 +81,14 @@ export default function CommentSection({ postId }) {
       console.log(error.message);
     }
   };
+
+  const handleEdit = async (comment, editComment) => {
+    setComments(
+      comments.map((c) =>
+        c._id === comment._id ? { ...c, content: editComment } : c
+      )
+    );
+  };
   return (
     <div className="max-w-2xl mx-auto w-full p-3">
       {currentUser ? (
@@ -143,7 +152,12 @@ export default function CommentSection({ postId }) {
             </div>
           </div>
           {comments.map((comment) => (
-            <Comment key={comment._id} comment={comment} onLike={handleLike} />
+            <Comment
+              key={comment._id}
+              comment={comment}
+              onLike={handleLike}
+              onEdit={handleEdit}
+            />
           ))}
         </>
       )}
