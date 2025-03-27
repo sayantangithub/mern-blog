@@ -7,11 +7,12 @@ import cookieParser from "cookie-parser";
 import PostRouter from "./routes/post.route.js";
 import CommentRouter from "./routes/comment.route.js";
 import path from "path";
+import cors from "cors";
 
 const __dirname = path.resolve();
 
 const app = express();
-
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
